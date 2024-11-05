@@ -38,10 +38,10 @@ export default function PostsPage() {
     setCurrentPage(newPage);
   };
 
-  const handleUserChange = (userId: number | null) => {
-    setSelectedUser(userId);
-    setCurrentPage(1);
-  };
+  // const handleUserChange = (userId: number | null) => {
+  //   setSelectedUser(userId);
+  //   setCurrentPage(1);
+  // };
 
   // console.log(posts)
   return (
