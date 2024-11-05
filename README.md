@@ -1,4 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Blog Dashboard
+
+This Blog Dashboard is a simple blogging application built with Next.js and styled using Tailwind CSS. It simulates functionalities like viewing posts, filtering by user, adding comments, and deleting comments. Data is fetched from a placeholder API to mimic a backend.
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Routes](#routes)
+  - [`/posts`](#posts)
+  - [`/posts/[id]`](#postsid)
+  - [`/api/posts`](#apiposts)
+  - [`/api/users`](#apiusers)
+- [Components](#components)
+  - [PostCard](#postcard)
+  - [CommentForm](#commentform)
+  - [CommentList](#commentlist)
+- [License](#license)
+
+## Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/blog-dashboard.git
 
 ## Getting Started
 
