@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+
 import CommentForm from './components/CommentForm';
 import CommentList from './components/CommentList';
 import { Post, Comment } from '@/types';
@@ -9,7 +9,7 @@ import { Post, Comment } from '@/types';
 export default function PostDetailPage({ params }: { params?: { id: string } }) {
   const [post, setPost] = useState<Post | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
-  const router = useRouter();
+ 
   const postId = params?.id;
 
   useEffect(() => {

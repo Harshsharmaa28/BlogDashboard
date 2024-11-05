@@ -10,25 +10,7 @@ interface PostCardProps {
 }
 
 export default function PostCard({ post, user }: PostCardProps) {
-  const [likes, setLikes] = useState<number>(post.likes || 0);
-
-
-  useEffect(() => {
-    const savedLikes = localStorage.getItem(`post-${post.id}-likes`);
-    console.log(savedLikes, `post-${post.id}-likes`)
-    if (savedLikes) {
-      setLikes(parseInt(savedLikes, 10));
-    }
-  }, [likes]);
-
-  useEffect(() => {
-    localStorage.setItem(`post-${post.id}-likes`, likes.toString());
-  }, [likes]);
-
-  const handleLike = () => {
-    setLikes(likes + 1);
-  };
-
+  
   return (
     <div className="bg-white shadow-lg rounded-lg p-6 mb-6 cursor-pointer transition-transform transform hover:scale-105 hover:shadow-xl">
       {/* <h2 className="text-2xl font-semibold text-gray-800 mb-2">{post.title}</h2>
