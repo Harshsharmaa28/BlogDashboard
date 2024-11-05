@@ -1,4 +1,11 @@
-export default function CommentList({ comments, onDeleteComment }) {
+import { Comment } from '@/types';
+
+interface CommentListProps {
+  comments: Comment[];
+  onDeleteComment: (commentId: number) => void;
+}
+
+export default function CommentList({ comments, onDeleteComment }: CommentListProps) {
   return (
     <div className="flex flex-col p-4 gap-4 bg-white shadow-md rounded-md">
       {comments?.map(comment => (

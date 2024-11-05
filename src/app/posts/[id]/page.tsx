@@ -1,19 +1,21 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
 
 import CommentForm from './components/CommentForm';
 import CommentList from './components/CommentList';
 import { Post, Comment } from '@/types';
 
-export default function PostDetailPage({ params }: { params?: { id: string } }) {
+export default function PostDetailPage() {
+  const { id } = useParams();
+  const postId = typeof id === 'string' ? id : '';
+
   const [post, setPost] = useState<Post | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
- 
-  const postId = params?.id;
 
   useEffect(() => {
-    if (!postId) return; 
+    if (!postId) return;
 
     const fetchPostData = async () => {
       try {
@@ -32,10 +34,14 @@ export default function PostDetailPage({ params }: { params?: { id: string } }) 
     fetchPostData();
   }, [postId]);
 
-  if (!post) return <div className="flex h-screen w-screen justify-center items-center">
-    <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
-    <span className="ml-4 text-blue-500 font-semibold">Loading...</span>
-  </div>
+  if (!post) {
+    return (
+      <div className="flex h-screen w-screen justify-center items-center">
+        <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+        <span className="ml-4 text-blue-500 font-semibold">Loading...</span>
+      </div>
+    );
+  }
 
   const handleAddComment = (newComment: Comment) => {
     setComments([newComment, ...comments]);
@@ -48,9 +54,9 @@ export default function PostDetailPage({ params }: { params?: { id: string } }) 
   return (
     <div className="bg-gray-100 min-h-screen">
       <div className="container mx-auto max-w-2xl p-6">
-        <h1 className=' text-xl py-1'>Post Details </h1>
+        <h1 className="text-xl py-1">Post Details</h1>
         <div className="bg-white shadow-md rounded-lg p-6 mb-6">
-          <h1 className=' font-bold text-2xl text-gray-900'>Title - </h1>
+          <h1 className="font-bold text-2xl text-gray-900">Title - </h1>
           <h1 className="text-3xl underline font-semibold text-gray-800 mb-4">{post.title}</h1>
           <p className="text-gray-700 leading-relaxed">{post.body}</p>
         </div>

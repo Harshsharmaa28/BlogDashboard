@@ -1,12 +1,24 @@
 import { useState } from 'react';
+import { Comment } from '@/types';
 
-export default function CommentForm({ postId,onAddComment}) {
+interface CommentFormProps {
+  postId: string;
+  onAddComment: (newComment: Comment) => void;
+}
+export default function CommentForm({ postId,onAddComment}: CommentFormProps) {
   const [name, setName] = useState('');
   const [body, setBody] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const newComment = { name, body, postId };
+    const newComment: Comment = {
+      postId: parseInt(postId, 10), 
+      id: Date.now(),
+      name,
+      email: `${name}@example.com`,
+      body,
+    };
+    
     onAddComment(newComment);
     setName('');
     setBody('')
