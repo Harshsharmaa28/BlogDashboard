@@ -14,45 +14,48 @@ This Blog Dashboard is a simple blogging application built with Next.js and styl
   - [PostCard](#postcard)
   - [CommentForm](#commentform)
   - [CommentList](#commentlist)
-- [License](#license)
+- [Deployment](#deployment)
 
 ## Installation
+# Clone the Repository
+git clone https://github.com/your-username/blog-dashboard.git
+cd blog-dashboard
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/blog-dashboard.git
+# Install Dependencies
+npm install
+or
+yarn install
+or
+pnpm install
+or
+bun install
+\```
 
-## Getting Started
-
-First, run the development server:
-
-```bash
+# Run the development server
 npm run dev
-# or
+or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+
+\```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is structured with Next.js' `app/` directory to leverage file-based routing. Below are the main routes and their functionalities.
 
-## Learn More
+### Routes
 
-To learn more about Next.js, take a look at the following resources:
+- **`/posts`**: Displays a list of all posts with basic details. Users can click on a post to view details.
+- **`/posts/[id]`**: Shows detailed information about a single post. Users can add and delete comments on this page.
+- **`/api/posts`**: Mock API endpoint to fetch post data (simulated with JSONPlaceholder).
+- **`/api/users`**: Mock API endpoint to fetch user data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **PostCard**: Displays summary information about each post (title, user info, etc.). Used on the `/posts` page.
+- **CommentForm**: Allows users to add comments to a post.
+- **CommentList**: Displays a list of comments for a post. Each comment includes an option to delete it.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+Deployed link : [Blog DashBoard](https://blog-dashboard-blond.vercel.app)
